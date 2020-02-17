@@ -12,7 +12,7 @@ Git 是目前最流行的源代码管理工具， GitHub、Bitbucket、GitLab等
 
 **因为 Git Flow 围绕的核心概念是版本发布（release）**。所以 Git Flow 适用于持续集成的，有较长版本发布周期的项目，也同样适用于 Sass 类项目。
 
-## 分支
+## 分支规范
 
 Git Flow 中包含 5 个分支，**master, develop, feature, release, hotfix**，我们先来简单了解下各分支。
 
@@ -38,4 +38,18 @@ release 分支是预上线分支，在发布提测阶段，所有的缺陷修复
 
 ### hotfix
 
-hotfix 分支用于线上紧急缺陷修复，也叫做补丁分支。当你需要通过 hotfix 分支修复线上问题时，流程应该是：从 master 创建 hotfix 分支，完成修复后，合并 hotfix 分支到 master 和 develop，并删除 hotfix 分支。
+hotfix 分支用于线上紧急缺陷修复，也叫做补丁分支。当你需要通过 hotfix 分支修复线上问题时，流程应该是：从 master 创建 hotfix 分支，完成修复后，合并 hotfix 分支到 master 和 develop，所以 hotfix 的改动会进入下一个 release。
+
+## 分支命名规范
+
+除了 master 和 develop 分支外，其余的三个分支创建时都需要遵守命名规范：
+
+```
+feature/module name
+release/version number
+hotfix/bug desc
+```
+
+其中，feature 功能分支后紧跟功能模块名称，如果版本开发人员较少的情况下，也可跟开发者名称；release 分支后面必须是预发布的版本号。
+
+（完）
